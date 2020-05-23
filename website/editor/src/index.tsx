@@ -1,15 +1,12 @@
-import ReactDOM from 'react-dom'
-
-import {loadLayoutSettings} from './layout-settings'
-import './init'
-import './graphite/dynamic'
-import App from './view'
 import React from 'react'
+import ReactDOM from 'react-dom'
+import {Application} from './application'
 
-const root = document.getElementById('try-wrapper')
-if (!root) throw Error('no body')
+const root = document.querySelector('#try-wrapper')
 
-loadLayoutSettings()
+if (!root) {
+  throw new Error('Root element not found')
+}
 
 window.addEventListener(
   'touchmove',
@@ -25,4 +22,5 @@ root.addEventListener(
   },
   false,
 )
-ReactDOM.render(<App />, root)
+
+ReactDOM.render(<Application />, root)
